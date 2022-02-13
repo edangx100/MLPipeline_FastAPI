@@ -1,6 +1,6 @@
 import pandas as pd
 import pytest
-import src.data_cleaning
+import data_cleaning
 
 
 @pytest.fixture
@@ -9,7 +9,7 @@ def data():
     Get dataset
     """
     df = pd.read_csv("data/raw/census.csv", skipinitialspace=True)
-    df = src.data_cleaning.__clean(df)
+    df = data_cleaning.__clean(df)
     return df
 
 
