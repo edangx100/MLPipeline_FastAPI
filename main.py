@@ -2,7 +2,7 @@
 import argparse
 import src.data_cleaning
 import src.train_test_model
-# import src.check_score
+import src.slice_score
 import logging
 
 
@@ -17,12 +17,12 @@ def execute(args):
         src.data_cleaning.clean_data()
 
     if args.action == "all" or args.action == "train_test_model":
-        logging.info("Train/Test model procedure started")
+        logging.info("Model training/testing started")
         src.train_test_model.train_test_model()
 
-    # if args.action == "all" or args.action == "check_score":
-    #     logging.info("Score check procedure started")
-    #     src.check_score.check_score()
+    if args.action == "all" or args.action == "slice_score":
+        logging.info("Slice Scoring started")
+        src.slice_score.get_scores()
 
 
 if __name__ == "__main__":
@@ -33,7 +33,7 @@ if __name__ == "__main__":
         type=str,
         choices=["clean_data",
                  "train_test_model",
-                #  "check_score",
+                 "slice_score",
                  "all"],
         default="all",
         help="Pipeline action"
