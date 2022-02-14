@@ -15,9 +15,16 @@ def data():
 
 def test_data_shape(data):
     """
-    Data is assumed to have no null values
+    Data should not have no null values
     """
     assert data.shape == data.dropna().shape
+
+
+def test_question_mark(data):
+    """
+    Data should not have "?"
+    """
+    assert '?' not in data.values
 
 
 def test_columns(data):
