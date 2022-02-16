@@ -8,7 +8,7 @@ Ed created the model. Logistic Regression from scikit-learn was used.
 
 ## Intended Use
 
-This model performs the task of predicting the salary of a person using features of the persons.
+This model performs the task of predicting the salary of a person using features of each person.
 
 ## Training Data
 
