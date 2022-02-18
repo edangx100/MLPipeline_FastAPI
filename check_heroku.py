@@ -12,7 +12,7 @@ data = {
     "sex": "Male",
     "hoursPerWeek": 60,
     "nativeCountry": "United-States"
-    }
+}
 r = requests.post('https://proj3-mlops.herokuapp.com/', json=data)
 
 assert r.status_code == 200
