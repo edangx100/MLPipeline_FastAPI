@@ -26,7 +26,7 @@ Execute `uvicorn server:app --reload`
 
 ### Check API deployed at Heroku
 
-Execute `python check_heroku_api.py`
+Execute `python check_heroku.py`
 
 ## CI/CD
 
