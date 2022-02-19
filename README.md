@@ -1,4 +1,4 @@
-# ML pipeline to expose API on Heroku
+# ML pipeline using GitHub and Heroku
 
 This project develops a classification model on publicly available Census Bureau data. Unit tests to monitor the model performance on various slices of the data were prepared. The model was deployed using the FastAPI package and API tests were prepared. Both the slice-validation and the API tests are incorporated into a CI/CD framework using GitHub Actions.
 
@@ -34,8 +34,8 @@ Execute `python check_heroku_api.py`
 
 ## CI/CD
 
-Github workflow [Test pipeline](.github/workflows/test.yaml) is triggered at each git push.
-Pipeline pulls data from DVC and execute Flake8 + pytest doing every test.
+Github workflow [Test pipeline](.github/workflows/test_n_pulldata.yaml) is triggered at each git push.
+Pipeline test pulling of data from DVC, execute Flake8 + pytest doing every test.
 
 
 ## Files required for Rubric
