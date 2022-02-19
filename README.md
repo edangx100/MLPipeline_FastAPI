@@ -22,7 +22,7 @@ Execute `python main.py --action all` or `python main.py`
 
 ### Serve API locally
 
-Execute `uvicorn api_server:app --reload`
+Execute `uvicorn server:app --reload`
 
 ### Check API deployed at Heroku
 
