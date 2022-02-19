@@ -2,10 +2,6 @@
 
 This project develops a classification model on publicly available Census Bureau data. Unit tests to monitor the model performance on various slices of the data were prepared. The model was deployed using the FastAPI package and API tests were prepared. Both the slice-validation and the API tests are incorporated into a CI/CD framework using GitHub Actions.
 
-## Code testing
-
-Execute `pytest` to run tests.
-
 ## Procedures
 
 ### Data cleaning 
@@ -34,8 +30,10 @@ Execute `python check_heroku_api.py`
 
 ## CI/CD
 
-Github workflow [Test pipeline](.github/workflows/test_n_pulldata.yaml) is triggered at each git push.
-Pipeline test pulling of data from DVC, execute Flake8 + pytest doing every test.
+At each git push, [Github workflow](.github/workflows/test_n_pulldata.yml) is run:
+* Pulling of data from DVC is tested, 
+* Flake8 is run to check code base against coding style (PEP8).
+* Pytest is run to run unit tests.
 
 
 ## Files required for Rubric
