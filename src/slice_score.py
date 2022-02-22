@@ -1,5 +1,4 @@
 import pandas as pd
-from sklearn.model_selection import train_test_split
 from pickle import load
 import src.data_preprocess as data_preprocess
 import src.modeling as modeling
@@ -10,13 +9,14 @@ def get_scores():
     """
     Execute score checking
     """
-    df = pd.read_csv("data/cleaned/census.csv")
-    _, test = train_test_split(df, test_size=0.20)
+    # Load test data
+    test = pd.read_csv("data/cleaned/test.csv")
 
     model_filename = "data/model/trained_model.sav"
     encoder_filename = "data/model/encoder.sav"
     labelbinarizer_filename = "data/model/labelbinarizer.sav"
 
+    # Load trained model and encoders
     model = load(open(model_filename, 'rb'))
     encoder = load(open(encoder_filename, 'rb'))
     lb = load(open(labelbinarizer_filename, 'rb'))
@@ -32,8 +32,8 @@ def get_scores():
         "native-country",
     ]
 
+    # compute slice metrics
     slice_values = []
-
     for feature in cat_features:
         for cls in test[feature].unique():
             df_temp = test[test[feature] == cls]
@@ -45,8 +45,7 @@ def get_scores():
 
             y_preds = model.predict(X_test)
 
-            precision, recall, fbeta = modeling.compute_model_metrics(y_test,
-                                                                      y_preds)
+            precision, recall, fbeta = modeling.compute_model_metrics(y_test, y_preds)
 
             line = f'[{feature}->{cls}] Precision: {precision} Recall: {recall} FBeta: {fbeta}'
             logging.info(line)

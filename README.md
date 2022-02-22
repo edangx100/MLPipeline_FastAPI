@@ -39,6 +39,7 @@ At each git push, [Github workflow](.github/workflows/test_n_pulldata.yml) is ru
 ## Files required for Rubric
 
 * [dvcdag.png](screenshots/dvcdag.png)
+* [model_classification_metrics.png](screenshots/model_classification_metrics.png)
 
 * [slice_output.txt](screenshots/slice_output.txt)
 
